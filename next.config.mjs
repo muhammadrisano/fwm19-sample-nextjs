@@ -4,7 +4,7 @@ const nextConfig = {
         return [
           {
             source: '/v1/:slug*',
-            destination: 'https://pijar-mama-recipe.vercel.app/v1/:slug*',
+            destination: `${process.env.NEXT_PUBLIC_API_URL}/v1/:slug*`,
           },
         ]
       },

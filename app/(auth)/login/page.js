@@ -1,5 +1,5 @@
 "use client"
-import { login } from '@/service/auth'
+import { login } from '@/service/client/auth'
 import { useRouter } from 'next/navigation'
 // import React, {useRef, useEffect} from 'react'
 import React from 'react'
@@ -32,8 +32,9 @@ const Login = () => {
         email,
         password
       }
-      login(payload)
+      await login(payload)
       // formData.reset()
+      // redirect('/profile')
       router.push('/profile')
     } catch (error) {
       console.log(error);

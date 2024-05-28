@@ -1,24 +1,25 @@
-"use client"
-import { getProfile } from '@/service/auth'
-import React, { useEffect, useState } from 'react'
+import { getProfile } from '@/service/server/auth'
+import React from 'react'
 
-const Profile = () => {
-  const [profile, setProfile] = useState({})
-  const handleGetProfile = async()=>{
-    try {
-      const user = await getProfile()
-      setProfile(user)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  useEffect(()=>{
-    handleGetProfile()
-  }, [])
+const Profile = async () => {
+  const result = await getProfile()
+  // const profile = result.data
+
   return (
     <div>
         <h1>Profile</h1>
-        <p>{JSON.stringify(profile)}</p>
+        <p>{JSON.stringify(result)}</p>
+       {/* <ul>
+        <li>
+          name: {profile.name}
+        </li>
+        <li>
+          email : {profile.email}
+        </li>
+        <li>
+          phone: {profile.phone}
+        </li>
+       </ul> */}
     </div>
   )
 }
