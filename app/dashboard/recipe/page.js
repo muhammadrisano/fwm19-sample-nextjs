@@ -1,6 +1,6 @@
 "use client"
 import { handleRevalidate } from "@/app/action";
-import { addRecipe } from "@/service/recipe";
+import { addRecipe } from "@/service/client/auth";
 import React from "react";
 
 const page = () => {
