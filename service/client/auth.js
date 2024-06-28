@@ -18,3 +18,20 @@ export const login = async (form) => {
   }
 };
 
+export const logout = async () => {
+  try {
+    const response = await fetch("/v1/auth/logout", {
+      method: "GET",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      credentials: "include",
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return Promise.reject("ada error");
+  }
+};
+
